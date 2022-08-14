@@ -9,7 +9,6 @@ export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   function handleAddTask(newTaskTitle: string) {
-    //TODO - add new task
     const titleExists = !!tasks.find((task) => task.title === newTaskTitle);
 
     if (titleExists) {
@@ -66,7 +65,6 @@ export function Home() {
   }
 
   function handleRemoveTask(id: number) {
-    //TODO - remove task from state
     Alert.alert(
       "Remover item",
       "Tem certeza que você deseja remover esse item?",
