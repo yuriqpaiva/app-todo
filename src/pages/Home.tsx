@@ -48,6 +48,23 @@ export function Home() {
     setTasks(updatedTasks);
   }
 
+  function handleEditTask(id: number, taskNewTitle: string) {
+    const idExists = !!tasks.find((task) => task.id === id);
+
+    if (!idExists) {
+      return;
+    }
+
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, title: taskNewTitle };
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+  }
+
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
     Alert.alert(
@@ -71,6 +88,7 @@ export function Home() {
       <TasksList
         tasks={tasks}
         toggleTaskDone={handleToggleTaskDone}
+        editTask={handleEditTask}
         removeTask={handleRemoveTask}
       />
     </View>
