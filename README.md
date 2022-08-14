@@ -1,7 +1,7 @@
 # to.do &middot;  ![Languages](https://img.shields.io/github/languages/count/yuriqpaiva/app-todo?color=blueviolet) ![Github Top Language](https://img.shields.io/github/languages/top/yuriqpaiva/app-todo?color=blue) ![GitHub license](https://img.shields.io/badge/license-MIT-red)
 
 <div align="center">
-  <img align="center" src="./assets/app.png" />
+  <img align="center" src="./assets/app.gif" width="250"/>
 </div>
 
 <br />
