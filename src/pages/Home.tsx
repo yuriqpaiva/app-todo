@@ -13,7 +13,11 @@ export function Home() {
     const titleExists = !!tasks.find((task) => task.title === newTaskTitle);
 
     if (titleExists) {
-      showRepeatedTitleAlert();
+      Alert.alert(
+        "Task já cadastrada",
+        "Você não pode cadastrar uma task com o mesmo nome",
+        [{ text: "OK" }]
+      );
       return;
     }
 
@@ -24,14 +28,6 @@ export function Home() {
     };
 
     setTasks([...tasks, data]);
-  }
-
-  function showRepeatedTitleAlert() {
-    Alert.alert(
-      "Task já cadastrada",
-      "Você não pode cadastrar uma task com o mesmo nome",
-      [{ text: "OK", onPress: () => console.log("OK Pressed") }]
-    );
   }
 
   function handleToggleTaskDone(id: number) {
@@ -54,9 +50,16 @@ export function Home() {
 
   function handleRemoveTask(id: number) {
     //TODO - remove task from state
-    const data = tasks.filter((task) => task.id !== id);
+    Alert.alert(
+      "Remover item",
+      "Tem certeza que você deseja remover esse item?",
+      [{ text: "Não" }, { text: "Sim", onPress: () => onTaskDelete() }]
+    );
 
-    setTasks(data);
+    function onTaskDelete() {
+      const data = tasks.filter((task) => task.id !== id);
+      setTasks(data);
+    }
   }
 
   return (
